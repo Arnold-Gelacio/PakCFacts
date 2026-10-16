@@ -1,0 +1,348 @@
+/* ==========================================================================
+   PakCFacts styles
+
+   Contents
+     1. Colors (change the look of the whole site here)
+     2. Page basics
+     3. Header and navigation
+     4. Headings and text
+     5. Cards and grids
+     6. Buttons
+     7. Forms
+     8. Tables
+     9. Checklist, progress bar and expandable guides
+    10. Diagram
+    11. Footer
+    12. Small screens (phones)
+    */
+
+
+/* ---------- 1. Colors ---------- */
+:root {
+  --text:           #1E293B;   /* main text */
+  --text-muted:     #64748B;   /* gray text: subtitles, notes */
+  --accent:         #2563EB;   /* blue: links, buttons, highlights */
+  --accent-light:   #EFF6FF;   /* pale blue: hovered menu item */
+  --page-bg:        #F8FAFC;   /* page background */
+  --white:          #FFFFFF;   /* cards, header, footer */
+  --border:         #E2E8F0;   /* thin gray lines */
+  --warning-bg:     #FFFBEB;   /* safety note background */
+  --warning-border: #F59E0B;   /* safety note border */
+}
+
+/* Dark mode colors - activated when <html class="dark-mode"> */
+html.dark-mode {
+  --text:           #F1F5F9;
+  --text-muted:     #94A3B8;
+  --accent:         #60A5FA;
+  --accent-light:   #1E3A5F;
+  --page-bg:        #0F172A;
+  --white:          #1E293B;
+  --border:         #334155;
+  --warning-bg:     #451A03;
+  --warning-border: #FBBF24;
+}
+
+
+/* ---------- 2. Page basics ---------- */
+* {
+  box-sizing: border-box;      /* padding and borders stay inside the set width */
+}
+
+body {
+  margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--page-bg);
+}
+
+a {
+  color: var(--accent);
+}
+
+/* Visible outline when moving around with the keyboard */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Keeps the page content centered and not too wide */
+.header-inner,
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0.8rem 1rem;
+}
+
+main {
+  padding: 1.5rem 1rem;
+}
+
+
+/* ---------- 3. Header and navigation ---------- */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.logo span {                    /* the blue "C" in PakCFacts */
+  color: var(--accent);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: block;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* Hovered link, and the link for the page you are on */
+nav a:hover,
+nav a[aria-current] {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* The Menu button is only shown on phones (see section 12) */
+#menuButton {
+  display: none;
+}
+
+
+/* ---------- 4. Headings and text ---------- */
+h1 {
+  font-size: 1.9rem;
+  margin: 0.2em 0;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-top: 1.8em;
+}
+
+h3 {
+  margin: 0.3em 0;
+}
+
+.subtitle,
+.muted {
+  color: var(--text-muted);
+}
+
+/* Yellow "Safety first" box */
+.safety-note {
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+}
+
+/* A horizontal line of items, such as buttons or search controls */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+
+/* ---------- 5. Cards and grids ---------- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.8rem 0;
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  margin: 0.3em 0;
+}
+
+/* Cards in columns that wrap automatically (min width 280px each) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.grid .card {
+  margin: 0;                    /* the grid gap already spaces the cards */
+}
+
+
+/* ---------- 6. Buttons ---------- */
+/* Works for <button> elements and for links styled with class="btn" */
+.btn,
+button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Add class="outline" for a white button with a blue border */
+.btn.outline,
+button.outline {
+  background: var(--white);
+  color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Full-width answer buttons in the diagnosis tool */
+.answer-button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+
+/* ---------- 7. Forms ---------- */
+input[type=search],
+select {
+  padding: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+input[type=search] {
+  min-width: 240px;
+}
+
+
+/* ---------- 8. Tables ---------- */
+table {
+  border-collapse: collapse;
+  background: var(--white);
+  margin: 1rem 0;
+  min-width: 480px;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+}
+
+caption {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.3rem 0;
+}
+
+/* Lets a wide table scroll sideways instead of stretching the page */
+.table-scroll {
+  overflow-x: auto;
+}
+
+
+/* ---------- 9. Checklist, progress bar and expandable guides ---------- */
+.checklist-item {
+  display: block;
+  padding: 0.4rem 0;
+}
+
+.progress-bar {
+  width: 100%;
+}
+
+details {
+  margin: 0.6rem 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+/* ---------- 10. Diagram (How It Fits page) ---------- */
+.diagram {
+  width: 100%;
+  max-width: 640px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+
+/* ---------- 11. Footer ---------- */
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0.2rem;
+}
+
+
+/* ---------- 12. Small screens (phones) ---------- */
+@media (max-width: 640px) {
+  /* Show the Menu button and hide the links until it is pressed */
+  #menuButton {
+    display: block;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+  }
+
+  /* script.js adds the "open" class when the Menu button is pressed */
+  nav.open ul {
+    display: flex;
+  }
+}

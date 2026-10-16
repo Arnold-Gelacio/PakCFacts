@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Troubleshooting | PakCFacts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header and menu (same on every page; edit all six files to change it) ===== -->
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="PakCFacts home">🖥️ Pak<span>C</span>Facts</a>
+      <button id="menuButton" class="outline" aria-expanded="false" aria-controls="nav">Menu</button>
+      <button id="themeToggle" class="outline" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+      <nav id="nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="components.html">How It Fits</a></li>
+          <li><a href="troubleshooting.html" aria-current="page">Troubleshooting</a></li>
+          <li><a href="diagnostics.html">Diagnose</a></li>
+          <li><a href="maintenance.html">Maintenance</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Page content ===== -->
+  <main>
+    <h1>Hardware Troubleshooting</h1>
+    <p class="subtitle">Beginner guides with safe, step-by-step checks.</p>
+
+    <div class="safety-note" role="note">
+      <b>Safety first:</b> shut down, unplug the power cable and touch bare metal on the case before handling internal parts. Never open a power supply unit (PSU).
+    </div>
+
+    <!-- script.js fills this with one expandable guide per item in GUIDES -->
+    <div id="guideList"></div>
+  </main>
+
+  <!-- ===== Footer (same on every page) ===== -->
+  <footer>
+    <p>PakCFacts: Computer Hardware Identification and Repair Guide</p>
+    <p>Computer Systems Servicing capstone project. Educational use only.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <button id="backToTop" aria-label="Back to top">↑</button>
+</body>
+</html>
